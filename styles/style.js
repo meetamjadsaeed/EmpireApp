@@ -44,5 +44,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: 'transparent',
   },
+  // Users Components
+  viewPrincipal: {
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: 20,
+    margin: 10,
+},
 });
 export default styles;

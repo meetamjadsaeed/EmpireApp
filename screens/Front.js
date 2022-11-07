@@ -4,9 +4,9 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 
-import New from "./components/New";
-import House from "./components/House";
-import Recommend from "./components/Recommended";
+import New from "../components/New";
+import House from "../components/House";
+import Recommend from "../components/Recommended";
 
 export default function Home() {
 
@@ -33,21 +33,21 @@ export default function Home() {
 
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal:15}}>
                 <New
-                 cover={require('./assets/images/house1.jpg')}
+                 cover={require('../assets/images/house1.jpg')}
                  name="Casa de Praia"
                  description="Casa nova à uma quadra do mar, lugar seguro e monitorado 24 horas"
                  onPress={()=> navigation.navigate('detail')}
                 />
 
                 <New
-                 cover={require('./assets/images/house2.jpg')}
+                 cover={require('../assets/images/house2.jpg')}
                  name="Casa Floripa"
                  description="Casa nova à uma quadra do mar, lugar seguro e monitorado 24 horas"
                  onPress={()=> navigation.navigate('detail')}
                 />
 
                 <New
-                 cover={require('./assets/images/house3.jpg')}
+                 cover={require('../assets/images/house3.jpg')}
                  name="Rancho SP"
                  description="Casa nova à uma quadra do mar, lugar seguro e monitorado 24 horas"
                  onPress={()=> {}}
@@ -60,13 +60,13 @@ export default function Home() {
 
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal:15}}>
                 <House
-                cover={require('./assets/images/house4.jpg')}
+                cover={require('../assets/images/house4.jpg')}
                 />
                 <House
-                cover={require('./assets/images/house5.jpg')}
+                cover={require('../assets/images/house5.jpg')}
                 />
                 <House
-                cover={require('./assets/images/house6.jpg')}
+                cover={require('../assets/images/house6.jpg')}
                 />
             </ScrollView>
 
@@ -76,17 +76,17 @@ export default function Home() {
             
             <ScrollView  horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal:15}}>
                 <Recommend
-                cover={require('./assets/images/house1.jpg')}
+                cover={require('../assets/images/house1.jpg')}
                 house="Casa Floripa"
                 offer="25%"
                 />
                 <Recommend
-                cover={require('./assets/images/house4.jpg')}
+                cover={require('../assets/images/house4.jpg')}
                 house="Casa São Paulo"
                 offer="15%"
                 />
                 <Recommend
-                cover={require('./assets/images/house6.jpg')}
+                cover={require('../assets/images/house6.jpg')}
                 house="Rancho Praia"
                 offer="10%"
                 />

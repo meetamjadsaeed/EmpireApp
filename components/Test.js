@@ -1,6 +1,10 @@
 import React from 'react';
 import { ScrollView } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
+import { useState } from 'react'
+import { TouchableOpacity, Image } from 'react-native'
+import { FontAwesome } from '@expo/vector-icons'
+import { Card, Avatar, AirbnbRating } from "react-native-elements"
 
 
 function Test(props) {

@@ -14,8 +14,13 @@ import Listing from "./components/Listings/Listing";
 import Test from "./components/Test";
 import ImagedCarouselCard from "./components/Cards/Carousel/ImagedCarouselCard";
 import House from "./components/House";
-import Front from "./Front";
+import Front from "./screens/Front";
 import Detail from "./Detail";
+import information from "./Test/pages/information/index";
+// import contats from "./Test/pages/contats/index";
+// import contats from "./components/Users/index/";
+import Users from "./components/Users/Users/";
+import User from "./components/Users/User/";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +30,7 @@ export default function App() {
       <Tab.Navigator>
       <Tab.Screen
           name="Testing"
-          component={Detail}
+          component={Front}
           options={{
             tabBarIcon: ({ color, size }) => (
               <Icon name="home" color={color} size={size} />
