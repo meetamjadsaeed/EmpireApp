@@ -7,7 +7,6 @@ import { Alert, Keyboard, KeyboardAvoidingView, Text, TextInput, TouchableWithou
 // import { Button } from "react-native-elements";
 // import * as Facebook from "expo-facebook";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
-import Home from "../Home";
 
 // const appId = "1047121222092614";
 // const Stack = createNativeStackNavigator();

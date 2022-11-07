@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
-export default function Recommended({cover, house, offer}){
+export default function Recommended({cover, name, offer}){
     return(
         <ImageBackground 
         source={cover}
@@ -9,7 +9,7 @@ export default function Recommended({cover, house, offer}){
         blurRadius={2}
         >
             <Text style={[styles.house, styles.shadow]}>
-                {house}
+                {name}
             </Text>
 
             <Text style={[styles.description, , styles.shadow]}>

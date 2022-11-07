@@ -3,22 +3,22 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 
 
 
-function House({ cover }){
+function House( props ){
     return(
         <View style={styles.container}>
             <View>
                 <Image 
-                source={cover}
+                source={props.cover}
                 style={styles.cover}
                 />
             </View>
 
             <View style={styles.content}>
                 <Text style={styles.description}>
-                    Casa para morar!
+                    {props.name}
                 </Text>
                 <Text style={styles.price}>
-                    R$ 954,60
+                {props.price}
                 </Text>
             </View>
 

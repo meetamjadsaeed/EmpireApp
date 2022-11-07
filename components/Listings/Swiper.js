@@ -2,9 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Swiper from "react-native-swiper";
 
-const img = "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80";
+// const img = "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80";
 
-
+const img = require('./houseimage.jpeg'); 
 
 export default function SwiperComponent(){
     return(
@@ -28,7 +28,8 @@ export default function SwiperComponent(){
         }}
         >
         
-            <View style={styles.slide}>
+        
+        <View style={styles.slide}>
                 <Image 
                 source={img}
                 style={{width:'100%', height:400}}

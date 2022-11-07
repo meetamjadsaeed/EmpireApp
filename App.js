@@ -7,10 +7,10 @@ const Stack = createStackNavigator(); // createStackNavigator is used to create 
 import { ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "./screens/Home";
 import LoginScreen from "./screens/Oath/Login";
 import Register from "./screens/Oath/Register";
 import Listing from "./components/Listings/Listing";
+import Listings from "./components/Listings/Listings";
 import Test from "./components/Test";
 import ImagedCarouselCard from "./components/Cards/Carousel/ImagedCarouselCard";
 import House from "./components/House";
@@ -21,16 +21,19 @@ import information from "./Test/pages/information/index";
 // import contats from "./components/Users/index/";
 import Users from "./components/Users/Users/";
 import User from "./components/Users/User/";
+import Locations from "./components/Locations/Locations";
+
+
+
 
 const Tab = createBottomTabNavigator();
-
 export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
       <Tab.Screen
           name="Testing"
-          component={Front}
+          component={Users}
           options={{
             tabBarIcon: ({ color, size }) => (
               <Icon name="home" color={color} size={size} />
@@ -40,7 +43,7 @@ export default function App() {
 
         <Tab.Screen
           name="Home"
-          component={Home}
+          component={Front}
           options={{
             tabBarIcon: ({ color, size }) => (
               <Icon name="home" color={color} size={size} />
