@@ -5,11 +5,21 @@
 
 import React from "react";
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { Platform, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
-
-function Categories( {name} ){
+function Categories( {name,id }){
+    const navigation = useNavigation(); 
     return(
+        <TouchableOpacity 
+        onPress={() => {
+            navigation.navigate('Category', {
+                catId: id,
+            });
+          }}
+        
+        >
         <View style={styles.container}>
 
             <View style={styles.content}>
@@ -19,6 +29,7 @@ function Categories( {name} ){
             </View>
 
         </View>
+        </TouchableOpacity>
     );
 }
 

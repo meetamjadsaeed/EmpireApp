@@ -1,28 +1,42 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
-function House( props ){
+
+function House( {cover, name, price, Id} ){
+    const navigation = useNavigation(); 
     return(
+        <TouchableOpacity
+        onPress={() => {
+            navigation.navigate('Listing', {
+                listingId: Id,
+            });
+          }}
+
+        >
         <View style={styles.container}>
             <View>
                 <Image 
-                source={props.cover}
+                source={cover}
                 style={styles.cover}
                 />
             </View>
 
             <View style={styles.content}>
                 <Text style={styles.description}>
-                    {props.name}
+                    {name}
                 </Text>
                 <Text style={styles.price}>
-                {props.price}
+                {price}
                 </Text>
             </View>
 
         </View>
+        </TouchableOpacity>
+
     );
 }
 

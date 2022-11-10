@@ -1,8 +1,22 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import ListingsWithLocation from "./ListingsWithLoc";
 
-function Locations({ cover, name }){
+function Locations({ cover, name, Id}){
+    const navigation = useNavigation(); 
+
     return(
+        <TouchableOpacity 
+        onPress={() => {
+            navigation.navigate('Location', {
+                locationId: Id,
+            });
+          }}
+
+        >
+
         <ImageBackground 
         source={cover}
         style={styles.container}
@@ -12,6 +26,8 @@ function Locations({ cover, name }){
                 {name}
             </Text>
         </ImageBackground>
+        </TouchableOpacity>
+
     );
 }
 

@@ -11,6 +11,8 @@ import Recommend from "../components/Recommended";
 import Nav from "../components/Reuse/Nav";
 import LocationsComponent from "../components/Locations/Locations";
 import Categories from "../components/Categories/Categories";
+import Loader from "../components/Loader";
+import ListingsWithLocation from "../components/Locations/ListingsWithLoc";
 
 
 
@@ -44,7 +46,7 @@ function Front() {
     DataByAPI();
   }, []);
 
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
   return (
     <ScrollView
@@ -69,11 +71,11 @@ function Front() {
               return (
                 <Categories
                   name={item.name}
-                  onPress={() => navigation.navigate("detail")}
+                  id={item.id}
                 />
               );
             })
-          : null}
+          : <Loader/> }
       </ScrollView>
 
 
@@ -93,12 +95,13 @@ function Front() {
                 <New
                   cover={require("../assets/images/house1.jpg")}
                   name={item.title.rendered}
+                  Id={item.id}
                   description={item.content.rendered.slice(0, 100)}
                   onPress={() => navigation.navigate("detail")}
                 />
               );
             })
-          : null}
+          : <Loader/>}
       </ScrollView>
 
       <View
@@ -119,10 +122,11 @@ function Front() {
                   cover={require("../assets/images/house4.jpg")}
                   name={item.title.rendered}
                   price="Rs. 50,000"
+                  Id={item.id}
                 />
               );
             })
-          : null}
+          : <Loader/>}
       </ScrollView>
 
       <Text style={[styles.title, { marginTop: 20 }]}>Recommended</Text>
@@ -139,13 +143,14 @@ function Front() {
                   cover={require("../assets/images/house1.jpg")}
                   name={item.title.rendered}
                   offer="25%"
+                  Id={item.id}
                 />
               );
             })
-          : null}
+          : <Loader/>}
       </ScrollView>
 
-      <Text style={[styles.title, { marginTop: 20 }]}>Locations</Text>
+      <Text style={[styles.title, { marginTop: 20 }]}>Browse By Locations</Text>
 
       <ScrollView
         horizontal
@@ -158,10 +163,11 @@ function Front() {
                 <LocationsComponent
                   cover={require("../assets/images/house1.jpg")}
                   name={item.name}
+                  Id={item.id}
                 />
               );
             })
-          : null}
+          : <Loader/>}
       </ScrollView>
     </ScrollView>
   );

@@ -1,8 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function Recommended({cover, name, offer}){
+export default function Recommended({cover, name, offer, Id}){
+    const navigation = useNavigation(); 
     return(
+        <TouchableOpacity 
+        onPress={() => {
+            navigation.navigate('Listing', {
+                listingId: Id,
+            });
+          }}
+
+        >
         <ImageBackground 
         source={cover}
         style={styles.container}
@@ -16,6 +27,8 @@ export default function Recommended({cover, name, offer}){
                 {offer}
             </Text>
         </ImageBackground>
+        </TouchableOpacity>
+
     );
 }
 

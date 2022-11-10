@@ -10,7 +10,8 @@ const img = require('./houseimage.jpeg');
 // const img ="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80";
 const baseUrl = "https://yp.listingprowp.com/wp-json/wp/v2/";
 
-function Detail() {
+function Detail({ route, navigation }) {
+  const { listingId } = route.params;
   const [getListing, setListing] = useState();
   const [getRelated, setRelated] = useState();
   const [getCategories, setCategories] = useState();
@@ -19,7 +20,7 @@ function Detail() {
 
   const DataByAPI = async () => {
     // FOR Listings
-    const listingResponse = await fetch(`${baseUrl}listing/211`);
+    const listingResponse = await fetch(`${baseUrl}listing/${listingId}`);
     const listingData = await listingResponse.json();
     setListing(listingData);
 

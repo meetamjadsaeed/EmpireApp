@@ -35,7 +35,14 @@ export default function Users({ navigation }) {
                 return (
 
 
-                <ListItem key={item.id} bottomDivider >
+                <ListItem key={item.id} bottomDivider  
+                onPress={() => {
+                    /* 1. Navigate to the Details route with params */
+                    navigation.navigate('User', {
+                        userId: item.id,
+                    });
+                  }}
+                >
                     <Avatar rounded size='large' source={{ uri: user.avatarUrl }} />
                     <ListItem.Content>
                         <ListItem.Title>{item.name}</ListItem.Title>
@@ -43,7 +50,7 @@ export default function Users({ navigation }) {
                         <Text
                             style={styles.textInformation}
                             // onPress={() => navigation.navigate('Information', { user })}
-                        >Mais informações</Text>
+                        >Entrepreneur</Text>
                     </ListItem.Content>
                 </ListItem>
             

@@ -10,11 +10,12 @@ const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 const baseUrl = "https://yp.listingprowp.com/wp-json/wp/v2/";
 
 
-const Category = (props) => {
+const Category = ({ route, navigation }) => {
     const [Category, SETCategory] = useState();
+    const { catId } = route.params;
 
     const fetchData = async () => {
-        const resp = await fetch(`${baseUrl}Category/2`);
+        const resp = await fetch(`${baseUrl}Category/${catId}`);
         const data = await resp.json();
         // console.log(data);
         SETCategory(data);
@@ -37,8 +38,8 @@ const Category = (props) => {
     <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
     <Card.Content>
-      <Title>{ Category ? Category.title.rendered : null}</Title>
-      <Paragraph>{ Category ? Category.content.rendered : null}</Paragraph>
+      <Title>{ Category ? Category.name : null}</Title>
+      <Paragraph>{ Category ? Category.description : null}</Paragraph>
     </Card.Content>
   </Card>
 

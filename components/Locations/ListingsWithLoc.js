@@ -12,11 +12,11 @@ const baseUrl = "https://yp.listingprowp.com/wp-json/wp/v2/";
 
   
 
-export const ListingsWithLocation = () => {
+const ListingsWithLocation = ({Id}) => {
     const [GetData, setData] = useState();
 
     const DataByAPI = async () => {
-      const resp = await fetch(`${baseUrl}listing?location=155`);
+      const resp = await fetch(`${baseUrl}listing?location=${Id}`);
       const data = await resp.json();
       setData(data);
       // setLoading(false);
@@ -43,7 +43,7 @@ export const ListingsWithLocation = () => {
               />
               <Card.Content>
                 <Title>{item.slug}</Title>
-                <Paragraph>{item.content.slice(0, 250)}</Paragraph>
+                <Paragraph>{item.content.rendered}</Paragraph>
               </Card.Content>
               <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
               <Card.Actions>
@@ -61,6 +61,7 @@ export const ListingsWithLocation = () => {
   )
 }
 
+export default ListingsWithLocation;
 
 const styles = StyleSheet.create({
     container: {

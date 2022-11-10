@@ -3,6 +3,8 @@ import { Text, View, TouchableOpacity, Image } from 'react-native'
 import styles from './style'
 import { FontAwesome } from '@expo/vector-icons'
 import { Card, Avatar, AirbnbRating } from "react-native-elements"
+import { Button, Title, Paragraph } from "react-native-paper";
+import Front from '../../screens/Front'
 
 
 
@@ -13,11 +15,12 @@ const baseUrl = "https://yp.listingprowp.com/wp-json/wp/v2/";
 
 export default function User({ route, navigation }) {
     const [avaliacao, setAvaliacao] = useState(5)
+    const { userId } = route.params;
 
     const [getData, setData] = useState();
 
         const fetchData = async () => {
-            const resp = await fetch(`${baseUrl}users/109`);
+            const resp = await fetch(`${baseUrl}users/${userId}`);
             const data = await resp.json();
             // console.log(data);
             setData(data);
@@ -40,15 +43,15 @@ export default function User({ route, navigation }) {
         <View>
             <Card containerStyle={styles.card} wrapperStyle={{}}>
                 <View style={styles.avatar} >
-                    <Avatar rounded size='xlarge' source={{ uri: route.params?.user.avatarUrl }} />
+                    {/* <Avatar rounded size='xlarge' source={{ uri: route.params?.user.avatarUrl }} /> */}
                 </View>
-                <Card.Title style={styles.cardTitle} >{route.params?.user.name}</Card.Title>
+                <Card.Title style={styles.cardTitle} >Amjad Saeed</Card.Title>
                 <Card.Divider />
                 <View>
                     <Text style={styles.infoText}>{ getData ? getData.name : null }</Text>
                     <Text style={styles.text}>Description: { getData ? getData.description : null }</Text>
-                    <Text style={styles.text}>Phone: {route.params?.user.profissao}</Text>
-                    <Text style={styles.text}>E-mail: {route.params?.user.email}</Text>
+                    {/* <Text style={styles.text}>Phone: 928739273209</Text> */}
+                    <Text style={styles.text}>E-mail: {JSON.stringify(userId)}</Text>
                 </View>
             </Card>
 
@@ -56,7 +59,7 @@ export default function User({ route, navigation }) {
                 <View>
                     <AirbnbRating
                         count={5}
-                        reviews={['Péssimo', 'Ruim', 'Bom', 'Muito bom', 'Ótimo']}
+                        reviews={['Good', 'v Good', 'wow', 'super', 'excited']}
                         defaultRating={5}
                         size={20}
                         onFinishRating={ratingCompleted}
@@ -70,7 +73,8 @@ export default function User({ route, navigation }) {
             >
                 <FontAwesome name='arrow-left' size={23} color='#fff'></FontAwesome>
                 <Text style={styles.buttonText}>Back</Text>
-            </TouchableOpacity>
+                            </TouchableOpacity>
+
         </View>
     )
 }

@@ -7,70 +7,69 @@ const Stack = createStackNavigator(); // createStackNavigator is used to create 
 import { ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import LoginScreen from "./screens/Oath/Login";
-import Register from "./screens/Oath/Register";
-import Listing from "./components/Listings/Listing";
-import Listings from "./components/Listings/Listings";
-import Test from "./components/Test";
-import ImagedCarouselCard from "./components/Cards/Carousel/ImagedCarouselCard";
-import House from "./components/House";
-import Front from "./screens/Front";
-import Detail from "./Detail";
-import information from "./Test/pages/information/index";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+
+// // Oath
+// import LoginScreen from "./screens/Oath/Login";
+// import Register from "./screens/Oath/Register";
+
+// // Main Pages
+// import Front from "./screens/Front";
+
+// // Listings
+// import Listings from "./components/Listings/Listings";
+// import Listing from "./components/Listings/Listing";
+
+// // Taxonomies
+// // Categories
+// import Categories from "./components/Categories/Categories";
+// import Category from "./components/Categories/Category";
+// import ListingsWithCat from "./components/Categories/ListingsWithCat";
+
+// // Locations
+// import Locations from "./components/Locations/Locations";
+// import Location from "./components/Locations/Location";
+// import ListingsWithLoc from "./components/Locations/ListingsWithLoc";
+
+// // Tags
+// import Tags from "./components/Tags/Tags";
+// import Tag from "./components/Tags/Tag";
+// import TagsWithListing from "./components/Tags/TagsWithListing";
+
+// // User
+// import Users from "./components/Users/Users/";
+// import User from "./components/Users/User/";
+
+// // Blog Posts
+// import Posts from "./components/Posts/Posts";
+// import Post from "./components/Posts/Post";
+// import Comments from "./components/Posts/Comments";
+
+// import Test from "./components/Test";
+// import ImagedCarouselCard from "./components/Cards/Carousel/ImagedCarouselCard";
+// import House from "./components/House";
+// import Detail from "./Detail";
+// import information from "./Test/pages/information/index";
 // import contats from "./Test/pages/contats/index";
 // import contats from "./components/Users/index/";
-import Users from "./components/Users/Users/";
-import User from "./components/Users/User/";
-import Locations from "./components/Locations/Locations";
 
-
+import StackNavigator from "./components/StackNavigator";
+import TabNavigation from "./components/Reuse/TabNavigation";
 
 
 const Tab = createBottomTabNavigator();
 export default function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-      <Tab.Screen
-          name="Testing"
-          component={Users}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Icon name="home" color={color} size={size} />
-            ),
-          }}
-        />
+    <>
 
-        <Tab.Screen
-          name="Home"
-          component={Front}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Icon name="home" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Icon name="home" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Register"
-          component={Register}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Icon name="home" color={color} size={size} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
+      {/* <TabNavigation/> */}
+      <StackNavigator/>
+    
+    </>
+    
+    
+  )
 }
 
 const styles = StyleSheet.create({

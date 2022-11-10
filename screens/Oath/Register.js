@@ -7,7 +7,7 @@ import { Alert, Keyboard, KeyboardAvoidingView, Text, TextInput, TouchableWithou
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 
 
-const Register = () => {
+const Register = ({ navigation }) => {
   return (
     <View style={styless.container}>
     {/* <Button containerStyle={styles.fbLoginButton} onPress={() => onLoginPress()}>Login</Button> */}
@@ -23,7 +23,10 @@ const Register = () => {
                 <TextInput placeholder="Email" placeholderColor="#c4c3cb" style={styles.loginFormTextInput} />
                 <TextInput placeholder="Password" placeholderColor="#c4c3cb" style={styles.loginFormTextInput} secureTextEntry={true} />
                 {/* <Button buttonStyle={styles.loginButton} onPress={() => onLoginPress()} title="Login" /> */}
-                <Button containerStyle={styles.fbLoginButton}>Register</Button>
+                <Button containerStyle={styles.fbLoginButton}
+                 onPress={() => navigation.push('LoginScreen')}
+                > 
+                  Register</Button>
               </View>
             </View>
           </TouchableWithoutFeedback>

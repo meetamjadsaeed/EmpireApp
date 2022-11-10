@@ -6,15 +6,20 @@ import { Appbar } from "react-native-paper";
 import { StyleSheet, StatusBar, ScrollView } from "react-native";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
+import Loader from "../Loader";
+
+import ListingsWithLocation from "./ListingsWithLoc";
+
 
 const baseUrl = "https://yp.listingprowp.com/wp-json/wp/v2/";
 
 
-const Location = (props) => {
+const Location = ({ route, navigation }) => {
     const [getData, setData] = useState();
+    const { locationId } = route.params;
 
     const fetchData = async () => {
-        const resp = await fetch(`${baseUrl}location/155`);
+        const resp = await fetch(`${baseUrl}location/${locationId}`);
         const data = await resp.json();
         // console.log(data);
         setData(data);
@@ -37,11 +42,13 @@ const Location = (props) => {
     <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
     <Card.Content>
-      <Title>{ getData ? getData.title.rendered : null}</Title>
-      <Paragraph>{ getData ? getData.content.rendered : null}</Paragraph>
+      <Title>{ getData ? getData.name : null}</Title>
+      <Paragraph>{ getData ? getData.description : null}</Paragraph>
     </Card.Content>
   </Card>
 
+  <Title>Listing with this location</Title>
+  {ListingsWithLocation? <ListingsWithLocation Id={locationId}/>: <Loader/>}
    </View>
    </ScrollView>
   )

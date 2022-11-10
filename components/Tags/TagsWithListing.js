@@ -9,7 +9,7 @@ import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
 const baseUrl = "https://yp.listingprowp.com/wp-json/wp/v2/";
 
-export const TagsWithListing = () => {
+const TagsWithListing = () => {
   const [GetData, setData] = useState();
 
   const DataByAPI = async () => {
@@ -53,6 +53,8 @@ export const TagsWithListing = () => {
     </ScrollView>
   );
 };
+
+export default TagsWithListing;
 
 const styles = StyleSheet.create({
   container: {

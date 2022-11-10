@@ -8,10 +8,13 @@ import { Alert, Keyboard, KeyboardAvoidingView, Text, TextInput, TouchableWithou
 // import * as Facebook from "expo-facebook";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 // const appId = "1047121222092614";
 // const Stack = createNativeStackNavigator();
 
-export default function LoginScreen(props) {
+export default function LoginScreen({ navigation }) {
   // const navigation = useNavigation();
 
   // const onLoginPress = () => {
@@ -49,7 +52,12 @@ export default function LoginScreen(props) {
             <Text style={styles.logoText}>Welcome Back</Text>
             <TextInput placeholder="Username" placeholderColor="#c4c3cb" style={styles.loginFormTextInput} />
             <TextInput placeholder="Password" placeholderColor="#c4c3cb" style={styles.loginFormTextInput} secureTextEntry={true} />
-            <Button >Login</Button>
+            <Button 
+           onPress={() => navigation.push('Front')}
+            >Login</Button>
+            <Button 
+           onPress={() => navigation.push('Register')}
+            >Register</Button>
             {/* <Button containerStyle={styles.fbLoginButton} type='clear' onPress={() => onFbLoginPress()} title="Login With Facebook" /> */}
           </View>
         </View>

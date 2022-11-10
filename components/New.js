@@ -2,17 +2,26 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
-export default function New(props){
+export default function New({Id, cover, name, description}){
+    const navigation = useNavigation(); 
     return(
-        <TouchableOpacity onPress={(props.onPress)} style={styles.container}>
+        <TouchableOpacity  style={styles.container}
+        onPress={() => {
+            navigation.navigate('Listing', {
+                listingId: Id,
+            });
+          }}
+
+        >
             <Image
-            source={props.cover}
+            source={cover}
             style={styles.cover}
             />
 
             <View style={styles.content}>
-                <Text style={styles.title}>{props.name}</Text>
+                <Text style={styles.title}>{name}</Text>
 
                 <View style={styles.dot}>
                 </View>
@@ -21,7 +30,7 @@ export default function New(props){
             </View>
 
             <Text style={styles.description}>
-                {props.description}
+                {description}
             </Text>
 
             <View style={styles.footer}>

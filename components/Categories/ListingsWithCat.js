@@ -12,7 +12,7 @@ const baseUrl = "https://yp.listingprowp.com/wp-json/wp/v2/";
 
   
 
-export const ListingsWithCategory = () => {
+const ListingsWithCategory = () => {
     const [GetData, setData] = useState();
 
     const DataByAPI = async () => {
@@ -61,6 +61,7 @@ export const ListingsWithCategory = () => {
   )
 }
 
+export default ListingsWithCategory
 
 const styles = StyleSheet.create({
     container: {
