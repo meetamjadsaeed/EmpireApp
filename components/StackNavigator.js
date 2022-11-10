@@ -18,6 +18,7 @@ import Front from '../screens/Front';
 // Listings 
 import Listings from "./Listings/Listings";
 import Listing from "./Listings/Listing";
+import NewListing from './Listings/NewListing';
 
 // Taxonomies 
     // Categories 
@@ -45,16 +46,22 @@ import Post from "./Posts/Post";
 import Comments from "./Posts/Comments";
 
 
+import ImagedCarouselCard from "./Cards/Carousel/ImagedCarouselCard";
+
+
+
 
 function stackNavigator(props) {
     return (
         <NavigationContainer>
         <Stack.Navigator initialRouteName="LoginScreen">
+        {/* <Stack.Screen name="test" component={ImagedCarouselCard} /> */}
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="Register" component={Register} />
           <Stack.Screen name="Front" component={Front} />
           <Stack.Screen name="Listings" component={Listings} />
           <Stack.Screen name="Listing" component={Listing} />
+          <Stack.Screen name="NewListing" component={NewListing} />
           <Stack.Screen name="Categories" component={Categories} />
           <Stack.Screen name="Category" component={Category} />
           <Stack.Screen name="ListingsWithCat" component={ListingsWithCat} />

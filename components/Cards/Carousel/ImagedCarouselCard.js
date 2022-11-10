@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Text, View, ImageBackground } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
+
 /**
  * ? Local Imports
  */
@@ -34,7 +36,7 @@ const ImagedCarouselCard = props => {
       style={[
         _backgroundStyle(width, height, shadowPaddingBottom),
         shadowStyle || _shadowStyle(shadowColor),
-        style,
+        style,conatinerStyles.header,
       ]}
     >
       <View
@@ -46,7 +48,7 @@ const ImagedCarouselCard = props => {
           overlayBorderBottomRightRadius
         )}
       >
-        <Text style={textStyle || styles.textStyle}>{text}</Text>
+        <Text style={textStyle || styles.textStyle}>{props.catName}</Text>
       </View>
     </ImageBackground>
   );
@@ -82,3 +84,17 @@ ImagedCarouselCard.defaultProps = {
 };
 
 export default ImagedCarouselCard;
+
+const conatinerStyles = StyleSheet.create({
+  header: {
+    paddingHorizontal: 0,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    marginVertical: 200,
+  },
+
+
+});
+

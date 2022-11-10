@@ -5,6 +5,12 @@ import axios from "axios";
 import { Appbar } from "react-native-paper";
 import { StyleSheet, StatusBar, ScrollView } from "react-native";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
+import ImagedCarouselCard from "../Cards/Carousel/ImagedCarouselCard";
+
+
+
+
+
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
 const baseUrl = "https://yp.listingprowp.com/wp-json/wp/v2/";
@@ -32,19 +38,9 @@ const Category = ({ route, navigation }) => {
 
 
   return (
-    <ScrollView style={styles.scrollView}>
-    <View>
-         <Card>
-    <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
-    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
-    <Card.Content>
-      <Title>{ Category ? Category.name : null}</Title>
-      <Paragraph>{ Category ? Category.description : null}</Paragraph>
-    </Card.Content>
-  </Card>
 
-   </View>
-   </ScrollView>
+    <ImagedCarouselCard catName = { Category ? Category.slug : "Not Found"}/>
+
   )
 }
 
